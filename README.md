@@ -26,10 +26,10 @@ binary_sensor:
 
 ## Instalation
 
-Download [*binary_sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/binary_sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/manifest.json) to `config/custom_compoments/impk` directory:
+Download [*binary_sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/binary_sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/manifest.json) to `config/custom_components/impk` directory:
 ```bash
-mkdir -p custom_compoments/impk
-cd custom_compoments/impk
+mkdir -p custom_components/impk
+cd custom_components/impk
 wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/binary_sensor.py
 wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/manifest.json
 ```
