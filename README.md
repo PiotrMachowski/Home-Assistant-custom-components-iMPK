@@ -40,8 +40,7 @@ This binary sensor provide `html` attribute which can be used in [*Lovelace HTML
 ```yaml
 - type: custom:html-card
   title: 'iMPK'
-  data:
-    - html: '<big><center>News</center></big>'
-    - entity_id: binary_sensor.impk_news
-      attribute: html
+  content: |
+    <big><center>News</center></big>
+    [[ binary_sensor.impk_news.attributes.html ]]
 ```
