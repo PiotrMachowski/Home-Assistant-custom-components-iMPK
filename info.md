@@ -22,11 +22,21 @@ binary_sensor:
 
 ## Hints
 
-This binary sensor provide `html` attribute which can be used in [*Lovelace HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card):
-```yaml
-- type: custom:html-card
-  title: 'iMPK'
-  content: |
-    <big><center>News</center></big>
-    [[ binary_sensor.impk_news.attributes.html ]]
-```
+This binary sensor provides `html` attribute which can be used in [*HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card) or [*HTML Template card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-Template-card):
+* HTML card:
+  ```yaml
+  - type: custom:html-card
+    title: 'iMPK'
+    content: |
+      <big><center>News</center></big>
+      [[ binary_sensor.impk_news.attributes.html ]]
+  ```
+* HTML Template card:
+  ```yaml
+  - type: custom:html-template-card
+    title: 'iMPK'
+    ignore_line_breaks: true
+    content: |
+      <big><center>News</center></big>
+      {{ state_attr('binary_sensor.impk_news','html') ]]
+  ```

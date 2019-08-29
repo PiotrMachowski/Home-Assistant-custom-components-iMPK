@@ -1,0 +1,5 @@
+{
+  "name": "iMPK sensor",
+  "domains": ["binary_sensor"],
+  "country": "PL"
+}
