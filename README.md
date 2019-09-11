@@ -1,5 +1,7 @@
 # iMPK sensor
 
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+
 This sensor uses unofficial API retrieved by decompilation of [*iMPK*](https://play.google.com/store/apps/details?id=pl.wasko.android.mpk) application to provide a list of news available in original app.
 
 ## Configuration options
