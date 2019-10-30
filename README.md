@@ -26,7 +26,7 @@ binary_sensor:
       - news
 ```
 
-## Instalation
+## Installation
 
 Download [*binary_sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/binary_sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/manifest.json) to `config/custom_components/impk` directory:
 ```bash
