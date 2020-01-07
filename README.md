@@ -55,7 +55,7 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw
       ignore_line_breaks: true
       content: |
         <big><center>News</center></big>
-        {{ state_attr('binary_sensor.impk_news','html') ]]
+        {{ state_attr('binary_sensor.impk_news','html') }}
     ```
 * This integration is available in [*HACS*](https://github.com/custom-components/hacs/).
 

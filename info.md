@@ -38,5 +38,5 @@ This binary sensor provides `html` attribute which can be used in [*HTML card*](
     ignore_line_breaks: true
     content: |
       <big><center>News</center></big>
-      {{ state_attr('binary_sensor.impk_news','html') ]]
+      {{ state_attr('binary_sensor.impk_news','html') }}
   ```
