@@ -153,7 +153,7 @@ class IMPKSensor(Entity):
 
     @staticmethod
     def departure_to_str(dep):
-        return '{} kier. {}: {} ({}m)'.format(dep["line"], dep["direction"], dep["departure"],
+        return '{}, kier. {}: {} ({}m)'.format(dep["line"], dep["direction"], dep["departure"],
                                               dep["time_to_departure"])
 
     @staticmethod
