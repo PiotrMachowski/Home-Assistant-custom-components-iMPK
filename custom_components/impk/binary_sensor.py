@@ -31,11 +31,11 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     for monitored_condition in config[CONF_MONITORED_CONDITIONS]:
         uid = '{}_{}'.format(name, monitored_condition)
         entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, uid, hass=hass)
-        dev.append(IMPKSensor(entity_id, name, monitored_condition))
+        dev.append(IMPKBinarySensor(entity_id, name, monitored_condition))
     add_entities(dev, True)
 
 
-class IMPKSensor(BinarySensorDevice):
+class IMPKBinarySensor(BinarySensorDevice):
     def __init__(self, entity_id, name, sensor_type):
         self.entity_id = entity_id
         self._name = name
