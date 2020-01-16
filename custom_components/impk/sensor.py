@@ -89,6 +89,10 @@ class IMPKSensor(Entity):
                 attr['delay'] = dep["delay"]
         return attr
 
+    @property
+    def icon(self):
+        return "mdi:bus-clock"
+
     def update(self):
         now = datetime.now()
         departures = IMPKSensor.get_departures(self._stop_id)
@@ -97,7 +101,6 @@ class IMPKSensor(Entity):
         positions = IMPKSensor.get_positions()
         courses = list(map(lambda d: d["c"], departures))
         delays = IMPKSensor.get_delays(courses, positions)
-        print(positions)
         stops = IMPKSensor.get_stops()
         parsed_departures = []
         for departure_details in departures:
@@ -177,7 +180,6 @@ class IMPKSensor(Entity):
     @staticmethod
     def get_delays(courses, positions):
         delays = dict()
-        # list(filter(lambda position: "course" in position and position["course"] in courses, positions))
         for position in positions:
             if len(delays) == len(courses):
                 break
