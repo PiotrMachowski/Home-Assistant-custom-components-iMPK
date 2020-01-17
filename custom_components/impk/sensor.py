@@ -13,6 +13,7 @@ from homeassistant.helpers.entity import async_generate_entity_id
 
 CONF_STOPS = 'stops'
 CONF_LINES = 'lines'
+CONF_DIRECTIONS = 'directions'
 DEFAULT_NAME = 'iMPK'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -21,7 +22,8 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
         vol.Schema({
             vol.Required(CONF_ID): cv.positive_int,
             vol.Optional(CONF_NAME): cv.string,
-            vol.Optional(CONF_LINES, default=[]): cv.ensure_list
+            vol.Optional(CONF_LINES, default=[]): cv.ensure_list,
+            vol.Optional(CONF_DIRECTIONS, default=[]): cv.ensure_list
         })])
 })
 
@@ -34,22 +36,24 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     for stop in stops:
         stop_id = str(stop.get(CONF_ID))
         lines = stop.get(CONF_LINES)
+        directions = stop.get(CONF_DIRECTIONS)
         real_stop_name = IMPKSensor.get_stop_name(stop_id, available_stops)
         if real_stop_name is None:
             raise Exception("Invalid stop id: {}".format(stop_id))
         stop_name = stop.get(CONF_NAME) or stop_id
         uid = '{}_{}'.format(name, stop_name)
         entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, uid, hass=hass)
-        dev.append(IMPKSensor(entity_id, name, stop_id, stop_name, real_stop_name, lines))
+        dev.append(IMPKSensor(entity_id, name, stop_id, stop_name, real_stop_name, lines, directions))
     add_entities(dev, True)
 
 
 class IMPKSensor(Entity):
-    def __init__(self, entity_id, name, stop_id, stop_name, real_stop_name, watched_lines):
+    def __init__(self, entity_id, name, stop_id, stop_name, real_stop_name, watched_lines, watched_directions):
         self.entity_id = entity_id
         self._name = name
         self._stop_id = stop_id
         self._watched_lines = watched_lines
+        self._watched_directions = watched_directions
         self._stop_name = stop_name
         self._real_stop_name = real_stop_name
         self._departures = []
@@ -107,9 +111,10 @@ class IMPKSensor(Entity):
             line = departure_details["l"]
             time = departure_details["t"]
             course = departure_details["c"]
-            if len(self._watched_lines) > 0 and line not in self._watched_lines:
-                continue
             direction = IMPKSensor.get_stop_name(departure_details["d"], stops)
+            if len(self._watched_lines) > 0 and line not in self._watched_lines \
+                    or len(self._watched_directions) > 0 and direction not in self._watched_directions:
+                continue
             delay = delays[course] if course in delays else 0
             original_departure = datetime.strptime(time, '%Y-%m-%d %H:%M:%S')
             departure = original_departure + timedelta(milliseconds=delay)

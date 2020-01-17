@@ -35,6 +35,7 @@ Binary sensor provides a list of news available in the original app, sensor retr
 | `id` | `positive integer` | `True` | - | ID of a stop |
 | `name` | `string` | `False` | id | Name of a stop |
 | `lines` | `list` | `False` | all available | List of monitored lines. |
+| `directions` | `list` | `False` | all available | List of monitored directions. |
 
 ## Example usage
 
@@ -51,6 +52,10 @@ sensor:
         lines:
           - "D"
           - "131"
+      - id: 124202
+        name: "REJA"
+        directions:
+          - "REJA"
 ```
 
 ## Installation
