@@ -47,7 +47,7 @@ binary_sensor:
       - news
 sensor:
   - platform: impk
-    lines:
+    stops:
       - id: 120820
       - id: 124202
         lines:
