@@ -1,8 +1,26 @@
-# iMPK sensor
+[![HACS Default][hacs_shield]][hacs]
+[![GitHub Latest Release][releases_shield]][latest_release]
+[![GitHub All Releases][downloads_total_shield]][releases]
+[![Buy me a coffee][buy_me_a_coffee_shield]][buy_me_a_coffee]
+[![PayPal.Me][paypal_me_shield]][paypal_me]
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
-[![buymeacoffee_badge](https://img.shields.io/badge/Donate-Buy%20Me%20a%20Coffee-ff813f?style=flat)](https://www.buymeacoffee.com/PiotrMachowski)
-[![paypalme_badge](https://img.shields.io/badge/Donate-PayPal-0070ba?style=flat)](https://paypal.me/PiMachowski)
+
+[hacs_shield]: https://img.shields.io/static/v1.svg?label=HACS&message=Default&style=popout&color=green&labelColor=41bdf5&logo=HomeAssistantCommunityStore&logoColor=white
+[hacs]: https://hacs.xyz/docs/default_repositories
+
+[latest_release]: https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/releases/latest
+[releases_shield]: https://img.shields.io/github/release/PiotrMachowski/Home-Assistant-custom-components-iMPK.svg?style=popout
+
+[releases]: https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/releases
+[downloads_total_shield]: https://img.shields.io/github/downloads/PiotrMachowski/Home-Assistant-custom-components-iMPK/total
+
+[buy_me_a_coffee_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Buy%20me%20a%20coffee&color=6f4e37&logo=buy%20me%20a%20coffee&logoColor=white
+[buy_me_a_coffee]: https://www.buymeacoffee.com/PiotrMachowski
+
+[paypal_me_shield]: https://img.shields.io/static/v1.svg?label=%20&message=PayPal.Me&logo=paypal
+[paypal_me]: https://paypal.me/PiMachowski
+
+# iMPK sensor
 
 These sensors use unofficial API retrieved by decompilation of [*iMPK*](https://play.google.com/store/apps/details?id=pl.wasko.android.mpk) application.
 Binary sensor provides a list of news available in the original app, sensor retrieves departures for desired stops.
@@ -40,7 +58,7 @@ Binary sensor provides a list of news available in the original app, sensor retr
 
 ## Example usage
 
-```
+```yaml
 binary_sensor:
   - platform: impk
     monitored_conditions:
@@ -61,13 +79,20 @@ sensor:
 
 ## Installation
 
-Download [*binary_sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/binary_sensor.py), [*sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/manifest.json) to `config/custom_components/impk` directory:
+### Using [HACS](https://hacs.xyz/) (recommended)
+
+This integration can be installed using HACS.
+To do it search for `iMPK` in *Integrations* section.
+
+### Manual
+
+To install this integration manually you have to download [*impk.zip*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/releases/latest/download/impk.zip) and extract its contents to `config/custom_components/impk` directory:
 ```bash
 mkdir -p custom_components/impk
 cd custom_components/impk
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/binary_sensor.py
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/sensor.py
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw/master/custom_components/impk/manifest.json
+wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/releases/latest/download/impk.zip
+unzip impk.zip
+rm impk.zip
 ```
 
 ## Hints
@@ -101,3 +126,4 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/raw
 * This integration is available in [*HACS*](https://github.com/custom-components/hacs/).
 
 <a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://paypal.me/PiMachowski" target="_blank"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo" style="height: auto !important;width: auto !important;"></a>

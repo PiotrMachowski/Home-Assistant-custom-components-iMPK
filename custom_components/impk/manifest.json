@@ -2,8 +2,10 @@
   "domain": "impk",
   "name": "iMPK",
   "documentation": "https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK",
+  "issue_tracker": "https://github.com/PiotrMachowski/Home-Assistant-custom-components-iMPK/issues",
   "dependencies": [],
   "codeowners": ["@PiotrMachowski"],
   "requirements": ["requests", "urllib3"],
-  "version": "v1.1.3"
+  "version": "v1.1.4",
+  "iot_class": "cloud_polling"
 }
