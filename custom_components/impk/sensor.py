@@ -185,14 +185,15 @@ class IMPKSensor(Entity):
     @staticmethod
     def get_delays(courses, positions):
         delays = dict()
-        for position in positions:
-            if len(delays) == len(courses):
-                break
-            if "course" not in position or position["course"] not in courses:
-                continue
-            course = position["course"]
-            delay = position["delay"]
-            delays[course] = int(delay)
+        if positions is not None:
+            for position in positions:
+                if len(delays) == len(courses):
+                    break
+                if "course" not in position or position["course"] not in courses:
+                    continue
+                course = position["course"]
+                delay = position["delay"]
+                delays[course] = int(delay)
         return delays
 
     @staticmethod
