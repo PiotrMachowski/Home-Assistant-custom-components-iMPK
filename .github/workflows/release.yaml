@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Prepare release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repo
+        uses: actions/checkout@v1
+
+      - name: Zip impk dir
+        run: |
+          cd /home/runner/work/Home-Assistant-custom-components-iMPK/Home-Assistant-custom-components-iMPK/custom_components/impk
+          zip impk.zip -r ./
+
+      - name: Upload zip to release
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: /home/runner/work/Home-Assistant-custom-components-iMPK/Home-Assistant-custom-components-iMPK/custom_components/impk/impk.zip
+          asset_name: impk.zip
+          tag: ${{ github.ref }}
+          overwrite: true

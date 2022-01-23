@@ -1,5 +1,8 @@
 {
   "name": "iMPK sensor",
   "domains": ["binary_sensor"],
-  "country": "PL"
+  "country": "PL",
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "impk.zip"
 }
