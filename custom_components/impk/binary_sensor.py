@@ -53,7 +53,7 @@ class IMPKBinarySensor(BinarySensorEntity):
         return '{} - {}'.format(self._name, self._sensor_name)
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
         attr = dict()
         if self._news_list is not None:
             attr['list'] = self._news_list
